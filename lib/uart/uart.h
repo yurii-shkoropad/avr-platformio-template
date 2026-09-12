@@ -14,5 +14,6 @@ void uart_println(const char *str);
 
 void uart_print_uint(uint32_t value);
 void uart_print_int(int32_t value);
+void uart_print_bin(uint8_t value);
 
 #endif

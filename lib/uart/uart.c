@@ -92,3 +92,17 @@ void uart_print_int(int32_t value)
         uart_print_uint((uint32_t)value);
     }
 }
+
+void uart_print_bin(uint8_t value)
+{
+    for (int8_t i = 7; i >= 0; i--) {
+        if (value & (1 << i)) {
+            uart_write('1');
+        } else {
+            uart_write('0');
+        }
+    }
+
+    uart_write('\r');
+    uart_write('\n');
+}
