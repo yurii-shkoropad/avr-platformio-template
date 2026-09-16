@@ -9,12 +9,60 @@ a value in binary.
 - `src/main.c` — entry point, initializes UART and prints a startup message
 - `lib/uart` — minimal UART driver (`uart_init`, `uart_write`/`uart_read`,
   `uart_print`/`uart_println`, `uart_print_uint`/`uart_print_int`/`uart_print_bin`)
+- `lib/millis` — Timer0-based millisecond counter (`millis_init`, `millis`)
 - `platformio.ini` — PlatformIO config (`atmelavr`, `uno` board)
 
 ## Building
 
 ```bash
 pio run
+```
+
+## uart
+
+`lib/uart` provides simple helpers for sending data over the UART, as used
+in `src/main.c`:
+
+```c
+#include <avr/io.h>
+#include <uart.h>
+
+int main(void)
+{
+    uart_init(9600);
+    uart_println("Program started");
+
+    uart_print_bin(1 << 0);
+}
+```
+
+## millis
+
+`lib/millis` provides an Arduino-style `millis()` counter driven by Timer0,
+useful for non-blocking timing instead of `_delay_ms`. Here it's used to
+print a message over UART once a second:
+
+```c
+#include <avr/io.h>
+#include <uart.h>
+#include <millis.h>
+
+int main(void)
+{
+    uart_init(9600);
+    millis_init();
+
+    uint32_t last = 0;
+
+    while (1) {
+        uint32_t now = millis();
+
+        if (now - last >= 1000) {
+            last = now;
+            uart_println("tick");
+        }
+    }
+}
 ```
 
 ## SimulIDE
