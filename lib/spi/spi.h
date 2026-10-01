@@ -3,13 +3,12 @@
 
 #include <stdint.h>
 
-void SPI_init(void);
-uint8_t SPI_transfer(uint8_t data);
+#define SPI_MOSI PB3
+#define SPI_MISO PB4
+#define SPI_SCK  PB5
 
-void SPI_select(void);
-void SPI_deselect(void);
-
-void SPI_write(uint8_t data);
-uint8_t SPI_read(void);
+void spi_init(void);
+uint8_t spi_transfer(uint8_t data);
+uint8_t spi_read(void);
 
 #endif
