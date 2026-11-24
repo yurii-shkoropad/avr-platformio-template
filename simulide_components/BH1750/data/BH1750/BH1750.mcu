@@ -1,0 +1,11 @@
+<iou name="BH1750" core="scripted" script="bh1750.as">
+
+  <propertygroup name="Main">
+    <property name="Lux" type="uint" unit="lx"/>
+  </propertygroup>
+
+  <ioport name="PORTA" pins="SCL,SDA" />
+
+  <twi name="twi" pins="SDA,SCL" />
+
+</iou>

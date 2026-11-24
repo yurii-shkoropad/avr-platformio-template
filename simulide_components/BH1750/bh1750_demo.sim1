@@ -1,0 +1,31 @@
+<circuit version="1.1.0-SR2" rev="260312" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="1" >
+
+<item itemtype="MCU" CircId="mega328-1" mainComp="false" Show_id="true" Show_Val="false" Pos="0,0" rotation="0" hflip="1" vflip="1" label="mega328-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="../.pio/build/bh1750_demo/firmware.hex" Auto_Load="true" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-2" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="104,-24" rotation="-90" hflip="1" vflip="1" label="Pullup" idLabPos="22,-32" labelrot="90" valLabPos="4,-26" valLabRot="90" Resistance="4.7 kΩ" Size="2" PullUp="true" PuVolt="5 V" />
+
+<item itemtype="MCU" CircId="BH1750-3" mainComp="false" Show_id="true" Show_Val="true" Pos="160,0" rotation="0" hflip="1" vflip="1" label="BH1750" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Lux="300" MainMcu="false" />
+
+<item itemtype="SerialTerm" CircId="SerialTerm-5" mainComp="false" Show_id="true" Show_Val="false" Pos="-60,-88" rotation="0" hflip="-1" vflip="1" label="Terminal" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
+
+<item itemtype="Node" CircId="Node-6" mainComp="false" Pos="80,8" />
+
+<item itemtype="Node" CircId="Node-7" mainComp="false" Pos="88,16" />
+
+<item itemtype="Connector" uid="Connector-201" startpinid="mega328-1-PORTC5" endpinid="Node-6-0" pointList="40,8,80,8" />
+
+<item itemtype="Connector" uid="Connector-202" startpinid="ResistorDip-2-resistor0-ePin0" endpinid="Node-6-1" pointList="80,-8,80,8" />
+
+<item itemtype="Connector" uid="Connector-203" startpinid="Node-6-2" endpinid="BH1750-3-PORTASCL" pointList="80,8,152,8" />
+
+<item itemtype="Connector" uid="Connector-204" startpinid="mega328-1-PORTC4" endpinid="Node-7-0" pointList="40,16,88,16" />
+
+<item itemtype="Connector" uid="Connector-205" startpinid="ResistorDip-2-resistor1-ePin2" endpinid="Node-7-1" pointList="88,-8,88,16" />
+
+<item itemtype="Connector" uid="Connector-206" startpinid="Node-7-2" endpinid="BH1750-3-PORTASDA" pointList="88,16,152,16" />
+
+<item itemtype="Connector" uid="Connector-208" startpinid="SerialTerm-5-pin0" endpinid="mega328-1-PORTD0" pointList="-36,-96,-12,-96,-12,16,-8,16" />
+
+<item itemtype="Connector" uid="Connector-209" startpinid="SerialTerm-5-pin1" endpinid="mega328-1-PORTD1" pointList="-36,-80,-16,-80,-16,24,-8,24" />
+
+</circuit>
